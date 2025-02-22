@@ -11,19 +11,23 @@ import web.service.CarService;
 @Controller
 public class CarController {
 
-    @Autowired
     private CarService carService;
 
-    @GetMapping(value = "/cars",  params = {"count"})
-    public String getCars(@RequestParam int count, Model model) {
+    @Autowired
+    public CarController(CarService carService) {
+        this.carService = carService;
+    }
+
+    @GetMapping(value = "/cars")
+    public String getCars(@RequestParam(value = "count", defaultValue = "5") int count, Model model) {
         model.addAttribute("cars", carService.getCarByCount(count));
         return "cars";
     }
 
-    @GetMapping(value = "/cars")
-    public String getCars(Model model) {
-        model.addAttribute("cars", carService.getCarByCount(5));
-        return "cars";
-    }
+//    @GetMapping(value = "/cars")
+//    public String getCars(Model model) {
+//        model.addAttribute("cars", carService);
+//        return "cars";
+//    }
 
 }
