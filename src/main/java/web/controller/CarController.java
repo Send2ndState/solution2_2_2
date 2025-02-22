@@ -24,10 +24,4 @@ public class CarController {
         return "cars";
     }
 
-//    @GetMapping(value = "/cars")
-//    public String getCars(Model model) {
-//        model.addAttribute("cars", carService);
-//        return "cars";
-//    }
-
 }
