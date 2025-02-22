@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Requested cars</title>
+</head>
+<body>
+<table border="1" style="width:300px">
+    <tr>
+        <th></th>
+        <th>Model</th>
+        <th>Series</th>
+        <th>Color</th>
+    </tr>
+    <tr th:each="car,iterationStatus : ${cars}">
+        <th th:text="${iterationStatus.count}"></th>
+        <td th:text="${car.getModel()}">car</td>
+        <td th:text="${car.getSeries()}">car</td>
+        <td th:text="${car.getColor()}">car</td>
+    </tr>
+</table>
+</body>
+</html>
